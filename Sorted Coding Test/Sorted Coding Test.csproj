@@ -5,7 +5,14 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Sorted_Coding_Test</RootNamespace>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <NoWarn>$(NoWarn);1591</NoWarn>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Configuraions\App.config" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -16,6 +23,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RainfallAPIAdapter\RainfallAPIAdapter.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Configuraions\App.config" />
   </ItemGroup>
 
 </Project>

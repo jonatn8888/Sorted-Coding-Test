@@ -26,7 +26,39 @@ namespace Sorted_Coding_Test.Controllers
         [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
         public async Task<IActionResult> getrainfall([FromQuery] rainfallReadingsRequest rainfallReadingsRequest)
         {
-            return View();
+            rainfallReadingsRequest request = new rainfallReadingsRequest();
+            errorsApi errorResponses = new errorsApi();
+
+            try
+            {
+                //Get Rainfall Request by stationId and Count
+                var apiResponse = await request.Process(rainfallReadingsRequest);
+                bool validateResponse = apiResponse.GetType() == typeof(rainfallReadingResponse);
+
+                //Validate what type of response Rainfall Reading or Rainfall Errors
+                if (validateResponse == false)
+                {
+                    errorsApi errorMSG = (errorsApi)apiResponse;
+                    if (errorMSG.message == constantsVariables.API_ERROR_BAD_REQUEST_MESSAGE)
+                    {
+                        //Return Bad Request 400
+                        return StatusCode((int)HttpStatusCode.BadRequest, apiResponse);
+                    }
+
+                    if (errorMSG.message == constantsVariables.API_ERROR_NOT_FOUND_MESSAGE)
+                    {
+                        //Return Not Found 404
+                        return StatusCode((int)HttpStatusCode.NotFound, apiResponse);
+                    }
+                }
+
+                //Return Success 200
+                return StatusCode((int)HttpStatusCode.OK, apiResponse);
+            }
+            catch (Exception ex)
+            {
+                return (IActionResult)baseReponse.CreateBaseRespone(StatusCode((int)HttpStatusCode.InternalServerError, errorResponses), errorResponses, ex.Message);
+            }
         }
     }
 }

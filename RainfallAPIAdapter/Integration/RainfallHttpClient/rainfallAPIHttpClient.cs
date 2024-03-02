@@ -20,6 +20,7 @@ namespace RainfallAPIAdapter.Integration.RainfallHttpClient
             _client = client;
         }
 
+
         internal async Task<defaultFrontEndResponse<T>> HttpGetAsync<T>(string uri)
         {
             HttpResponseMessage httpResponseMessage = await _client.GetAsync(uri ?? "");
@@ -31,8 +32,7 @@ namespace RainfallAPIAdapter.Integration.RainfallHttpClient
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 rainfallReadingsResult RainfallReadingsResult = JsonConvert.DeserializeObject<rainfallReadingsResult>(await httpResponseMessage.Content.ReadAsStringAsync());
-               // defaultResponse<T> defaultResponse = JsonConvert.DeserializeObject<defaultResponse<T>>(await httpResponseMessage.Content.ReadAsStringAsync());
-
+               
                 defaultFrontEndResponse.items = RainfallReadingsResult.items;
 
                 if (defaultFrontEndResponse.items.Count == 0)

@@ -10,12 +10,14 @@ namespace RainfallAPIAdapter.Integration.API
 {
     public class rainfallAPIDetails
     {
+        //Initialization of API Call Details
         public rainfallAPIHttpClient GetRainfallHtppCLient()
         {
 
             var handler = new HttpClientHandler();
             var client = new HttpClient(handler);
 
+            //Get API URLfrom app config
             string baseUrl = ConfigurationHandler.GetAppSettingsValue("RAINFALL_API_BASE_URL");
             client.BaseAddress = new Uri(baseUrl);
 
