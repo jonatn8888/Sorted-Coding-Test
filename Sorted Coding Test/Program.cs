@@ -28,7 +28,7 @@ builder.Services.AddSwaggerGen(options =>
         });
     var filename = "RainfallSummary.xml";
     var filepath = Path.Combine(AppContext.BaseDirectory, filename);
-    options.IncludeXmlComments(filepath);
+    options.IncludeXmlComments(filepath.Replace("Sorted Coding Test\\bin\\Debug\\net6.0\\", ""));
 });
 
 
