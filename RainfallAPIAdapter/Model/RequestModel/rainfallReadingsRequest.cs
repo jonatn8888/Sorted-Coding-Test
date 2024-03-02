@@ -25,4 +25,6 @@ namespace RainfallAPIAdapter.Model.RequestModel
         [DefaultValue("10")]
         public int count { get; set; }
     }
+
+
 }

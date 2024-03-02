@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RainfallAPIAdapter.Integration
+namespace RainfallAPIAdapter.Integration.API
 {
     public class rainfallAPIDetails
     {
