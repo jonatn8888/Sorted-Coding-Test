@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RainfallAPIAdapter</name>
+    </assembly>
+    <members>
+        <member name="P:RainfallAPIAdapter.Model.RequestModel.rainfallReadingsRequest.stationId">
+            <summary>
+            The id of the reading station
+            </summary>        
+            <example>4163</example>
+        </member>
+        <member name="P:RainfallAPIAdapter.Model.RequestModel.rainfallReadingsRequest.count">
+            <summary>
+            The number of readings to return
+            </summary>
+        </member>
+        <member name="T:RainfallAPIAdapter.Model.ResponseModel.Errors.errorResponse">
+            <summary>
+            An error object returned for failed requests
+            </summary>  
+        </member>
+        <member name="P:RainfallAPIAdapter.Model.ResponseModel.Errors.errorsApi.errorDetail.propertyName">
+            <summary>
+            Details of invalid request property
+            </summary>  
+        </member>
+        <member name="T:RainfallAPIAdapter.Model.ResponseModel.rainfallReadingResponse.rainfallReading">
+            <summary>
+            Details of a rainfall reading
+            </summary> 
+        </member>
+    </members>
+</doc>

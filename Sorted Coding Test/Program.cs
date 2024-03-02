@@ -26,7 +26,7 @@ builder.Services.AddSwaggerGen(options =>
 
 
         });
-    var filename = Assembly.GetExecutingAssembly().GetName().Name + ".xml";
+    var filename = "RainfallSummary.xml";
     var filepath = Path.Combine(AppContext.BaseDirectory, filename);
     options.IncludeXmlComments(filepath);
 });
